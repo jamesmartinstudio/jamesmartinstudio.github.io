@@ -1,24 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>James Martin - Welcome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>James Martin - Portfolio</title>
+
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <style>
+        /* Background and typography */
         html {
             min-height: 100%;
             background-color: #051F20;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-                              url("images/background.png");
+            background-image:
+                linear-gradient(90deg,
+                    rgba(5, 31, 32, 0.95),
+                    rgba(5, 31, 32, 0.65)),
+                url("images/background.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
         }
 
         body {
+            background: transparent;
             color: #FFFFFF;
+            font-family: Arial, sans-serif;
         }
 
+        .container {
+            max-width: 1120px;
+        }
+
+        /* Links */
         a:link {
             color: #FFE08A;
         }
@@ -31,40 +48,204 @@
             color: #FFFFFF;
         }
 
-        a:active {
-            color: #B8F2E6;
-        }
-
         a:focus-visible {
             outline: 3px solid #FFFFFF;
-            outline-offset: 4px;
+            outline-offset: 5px;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #FFFFFF;
+        /* Header */
+        .site-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        }
+
+        .brand,
+        .brand:visited {
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navigation a {
+            text-decoration: none;
+        }
+
+        .navigation a:hover,
+        .navigation a[aria-current="page"] {
+            color: #FFFFFF;
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+
+        /* Introduction */
+        .hero {
+            min-height: 65vh;
+            padding-top: 90px;
+            padding-bottom: 90px;
+        }
+
+        .eyebrow {
+            color: #B8F2E6;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 64px;
+            font-weight: bold;
+            line-height: 1.1;
+            letter-spacing: -2px;
+        }
+
+        .introduction {
+            max-width: 490px;
+            font-size: 19px;
+            line-height: 1.7;
+        }
+
+        /* Rounded button with less padding */
+        a.work-button,
+        a.work-button:visited {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 24px;
+            background-color: #B8F2E6;
+            color: #051F20;
+            border: none;
+            border-radius: 999px;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 1.2;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        a.work-button:hover {
+            background-color: #DCFFF5;
+            color: #051F20;
+        }
+
+        a.work-button:active {
+            background-color: #93D9C9;
+            color: #051F20;
+        }
+
+        /* Contact area */
+        .contact-area {
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            padding-top: 35px;
+            padding-bottom: 35px;
+        }
+
+        .contact-area h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .email-link {
+            overflow-wrap: anywhere;
+        }
+
+        /* Adjust the heading on smaller screens */
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 44px;
+                letter-spacing: -1px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding-top: 65px;
+                padding-bottom: 65px;
+            }
         }
     </style>
 </head>
 
-<body style="font-family: Arial, sans-serif;">
-    <h1 style="text-align: center;">James Martin</h1>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="works.html">My Projects</a></li>
-        <li><a href="aboutme.html">About Me</a></li>
-    </ul>
-    <hr>
-    <h2>Portfolio</h2>
-    <p><a href="works.html">My Work</a></p>
-    <hr>
-    <h2>Let's Connect!</h2>
-    <ul>
-        <li><a href="http://www.linkedin.com/in/jamesmartin-h">LinkedIn</a></li>
-        <li><a href="jameshmartin.studio@gmail.com">jameshmartin.studio@gmail.com</a></li>
-    </ul>
-    <p><a href="#">Back to Top</a></p>
+<body id="top">
 
+    <!-- Name and navigation -->
+    <header class="site-header">
+        <nav class="container py-4 d-flex flex-column flex-sm-row
+                    justify-content-between gap-4" aria-label="Main navigation">
+
+            <a class="brand" href="index.html">James Martin</a>
+
+            <ul class="navigation list-unstyled d-flex flex-wrap gap-4 mb-0">
+                <li>
+                    <a href="index.html" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="works.html">My Projects</a>
+                </li>
+                <li>
+                    <a href="aboutme.html">About Me</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main introduction -->
+    <main class="container">
+        <section class="hero d-flex align-items-center" aria-labelledby="intro-title">
+
+            <div>
+                <p class="eyebrow mb-4">Portfolio</p>
+
+                <h1 id="intro-title" class="mb-4">
+                    Art, design,<br>
+                    and a new perspective.
+                </h1>
+
+                <p class="introduction mb-4">
+                    A collection of my digital media art,
+                    graphic design, and photography.
+                </p>
+
+                <p class="mt-4 mb-0">
+                    <a class="work-button" href="works.html">
+                        Explore
+                    </a>
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Contact links -->
+    <footer class="container">
+        <div class="contact-area">
+            <div class="row align-items-center gy-4">
+
+                <div class="col-md-5">
+                    <h2 class="mb-0">Let's Connect!</h2>
+                </div>
+
+                <div class="col-md-7">
+                    <ul class="list-unstyled d-flex flex-wrap
+                               justify-content-md-end gap-4 mb-0">
+                        <li>
+                            <a href="https://www.linkedin.com/in/jamesmartin-h">
+                                LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a class="email-link" href="mailto:jameshmartin.studio@gmail.com">
+                                jameshmartin.studio@gmail.com
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <p class="text-end pb-3 mb-0">
+            <a href="#top">Back to Top &uarr;</a>
+        </p>
+    </footer>
 
 </body>
 

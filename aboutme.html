@@ -6,23 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>James Martin - About Me</title>
 
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <style>
+        /* Background and typography */
         body {
-            background-color: #0A192F;
+            background-color: #051F20;
             color: #FFFFFF;
             font-family: Arial, sans-serif;
         }
 
-        h1 {
-            text-align: center;
+        .container {
+            max-width: 1120px;
         }
 
+        /* Links */
         a:link {
-            color: #64FFDA;
+            color: #FFE08A;
         }
 
         a:visited {
-            color: #C4B5FD;
+            color: #D8C4FF;
         }
 
         a:hover {
@@ -30,85 +36,194 @@
         }
 
         a:active {
-            color: #FFD166;
+            color: #B8F2E6;
         }
 
         a:focus-visible {
-            outline: 2px solid #FFFFFF;
-            outline-offset: 4px;
+            outline: 3px solid #FFFFFF;
+            outline-offset: 5px;
         }
 
-        main {
-            text-align: center;
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 20px;
+        /* Header and navigation */
+        .site-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
         }
 
-        img {
-            max-width: 100%;
+        .brand,
+        .brand:visited {
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navigation a {
+            text-decoration: none;
+        }
+
+        .navigation a:hover,
+        .navigation a[aria-current="page"] {
+            color: #FFFFFF;
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+
+        /* About Me section */
+        .about-section {
+            padding-top: 65px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .portrait {
+            display: block;
+            width: 100%;
+            max-width: 450px;
             height: auto;
+            border-radius: 8px;
         }
 
-        p {
-            line-height: 1.6;
+        .biography p {
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 24px;
         }
 
+        .biography p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Divider and footer */
         hr {
-            border: none;
-            border-top: 1px solid #8892B0;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            margin: 60px 0 40px;
+            opacity: 1;
         }
 
-        footer {
-            text-align: center;
+        .contact-area {
+            padding-bottom: 35px;
+        }
+
+        .contact-area h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .email-link {
+            overflow-wrap: anywhere;
+        }
+
+        /* Smaller heading on phones */
+        @media (max-width: 767px) {
+            .about-section {
+                padding-top: 45px;
+            }
+
+            h1 {
+                font-size: 38px;
+                margin-bottom: 30px;
+            }
         }
     </style>
 </head>
 
 <body id="top">
-    <h1>James Martin</h1>
 
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="works.html">My Projects</a></li>
-        <li><a href="aboutme.html">About Me</a></li>
-    </ul>
+    <!-- Name and main navigation -->
+    <header class="site-header">
+        <nav class="container py-4 d-flex flex-column flex-sm-row
+                    justify-content-between gap-4" aria-label="Main navigation">
 
-    <hr>
+            <a class="brand" href="index.html">James Martin</a>
 
-    <main>
-        <h2>About Me</h2>
+            <ul class="navigation list-unstyled d-flex flex-wrap gap-4 mb-0">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="works.html">My Projects</a>
+                </li>
+                <li>
+                    <a href="aboutme.html" aria-current="page">About Me</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        <img src="images/myportrait.jpeg"
-             alt="Portrait of James Martin"
-             width="450">
+    <!-- Portrait and biography -->
+    <main class="container about-section">
+        <h1>About Me</h1>
 
-        <p>
-            I’m studying Digital Media Art at San José State University and am
-            currently the product designer at Gradient Labs, where I work across
-            product, branding, and growth to shape a new approach to prediction
-            markets.
-        </p>
+        <div class="row align-items-center gy-4">
 
-        <p>
-            I’m most interested in products shaped by culture, competition, and
-            discovery—the kinds of experiences that become part of people’s
-            routines rather than simply helping them complete a task.
-        </p>
+            <div class="col-lg-5">
+                <img class="portrait img-fluid" src="images/myportrait.jpeg" alt="Portrait of James Martin" width="450">
+            </div>
 
-        <p>
-            When I’m not designing, I’m listening to music, playing tennis,
-            doing portrait photography, graphic design, improving my Spanish
-            speaking skills, or exploring ideas that eventually find their
-            way back into my work.
-        </p>
+            <div class="col-lg-7 biography ps-lg-4">
+                <p>
+                    I’m studying Digital Media Art at San José State University
+                    and am currently the product designer at Gradient Labs,
+                    where I work across product, branding, and growth to shape
+                    a new approach to prediction markets.
+                </p>
+
+                <p>
+                    I’m most interested in products shaped by culture,
+                    competition, and discovery—the kinds of experiences that
+                    become part of people’s routines rather than simply
+                    helping them complete a task.
+                </p>
+
+                <p>
+                    When I’m not designing, I’m listening to music, playing
+                    tennis, doing portrait photography, graphic design,
+                    improving my Spanish speaking skills, or exploring ideas
+                    that eventually find their way back into my work.
+                </p>
+            </div>
+
+        </div>
+
+        <hr>
     </main>
 
-    <hr>
+    <!-- Contact links -->
+    <footer class="container contact-area">
+        <div class="row align-items-center gy-4">
 
-    <footer>
-        <p><a href="#top">Back to Top</a></p>
+            <div class="col-md-5">
+                <h2 class="mb-0">Let's Connect!</h2>
+            </div>
+
+            <div class="col-md-7">
+                <ul class="list-unstyled d-flex flex-wrap
+                           justify-content-md-end gap-4 mb-0">
+                    <li>
+                        <a href="https://www.linkedin.com/in/jamesmartin-h">
+                            LinkedIn
+                        </a>
+                    </li>
+                    <li>
+                        <a class="email-link" href="mailto:jameshmartin.studio@gmail.com">
+                            jameshmartin.studio@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="text-end mt-4 mb-0">
+            <a href="#top">Back to Top &uarr;</a>
+        </p>
     </footer>
+
 </body>
 
 </html>

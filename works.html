@@ -5,15 +5,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>James Martin - My Projects</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
     <style>
         body {
             background-color: #051F20;
             color: #FFFFFF;
+            font-family: Arial, sans-serif;
         }
 
-        a {
-            text-decoration: underline;
-            text-underline-offset: 3px;
+        .container {
+            max-width: 1120px;
         }
 
         a:link {
@@ -32,180 +36,932 @@
             color: #B8F2E6;
         }
 
-        a:focus-visible {
+        a:focus-visible,
+        button:focus-visible {
             outline: 3px solid #FFFFFF;
-            outline-offset: 4px;
+            outline-offset: 5px;
         }
 
-        hr {
-            border: 0;
-            border-top: 1px solid #FFFFFF;
+        /* Header and navigation */
+
+        .site-header {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.35);
         }
 
-        /* Adapted from W3Schools: https://www.w3schools.com/css/css_grid_tracks.asp */
-        .graphics-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            /* Four equal columns */
-            gap: 25px;
-            max-width: 1100px;
-            margin: 25px auto;
-            /* Center the gallery */
-            align-items: start;
+        .brand,
+        .brand:visited {
+            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: bold;
+            text-decoration: none;
         }
 
-        /* Five equal columns for the photography gallery */
-        .photo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-            gap: 25px;
-            max-width: 1100px;
-            margin: 25px auto;
-            align-items: start;
+        .navigation a {
+            text-decoration: none;
         }
 
-        .graphics-grid img,
-        .photo-grid img {
+        .navigation a:hover,
+        .navigation a[aria-current="page"] {
+            color: #FFFFFF;
+            text-decoration: underline;
+            text-underline-offset: 7px;
+        }
+
+        /* Page headings */
+
+        .page-intro {
+            padding: 65px 0 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .section-description {
+            max-width: 850px;
+            line-height: 1.8;
+        }
+
+        /* Project grids */
+
+        .project-media {
             display: block;
             width: 100%;
-            min-width: 0;
+            height: 280px;
+            object-fit: contain;
+            background-color: #031617;
+            border-radius: 8px;
+        }
+
+        .photo-grid .project-media {
+            height: 240px;
+        }
+
+        .project-title {
+            margin-top: 18px;
+            margin-bottom: 12px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .image-button {
+            display: block;
+            width: 100%;
+            padding: 0;
+            border: 0;
+            border-radius: 8px;
+            background: transparent;
+            cursor: zoom-in;
+        }
+
+        .image-button:hover {
+            outline: 2px solid #B8F2E6;
+            outline-offset: 3px;
+        }
+
+        .tools {
+            margin-bottom: 0;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .tools strong {
+            display: block;
+            margin-bottom: 3px;
+            color: #B8F2E6;
+        }
+
+        /* Enlarged images */
+
+        .image-viewer {
+            width: 1100px;
+            max-width: 94vw;
+            max-height: 94vh;
+            margin: auto;
+            padding: 20px;
+            overflow: auto;
+            background-color: #051F20;
+            color: #FFFFFF;
+            border: 1px solid rgba(184, 242, 230, 0.4);
+            border-radius: 10px;
+        }
+
+        .image-viewer::backdrop {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .image-viewer img {
+            display: block;
+            width: auto;
             height: auto;
-            /* Keep each image proportional */
+            max-width: 100%;
+            max-height: 75vh;
+            margin: 0 auto;
+            object-fit: contain;
         }
 
-        /* Two columns on smaller screens */
-        @media (max-width: 800px) {
+        .image-viewer p {
+            margin: 16px 0 0;
+            text-align: center;
+        }
 
-            .graphics-grid,
-            .photo-grid {
-                grid-template-columns: 1fr 1fr;
+        /* Simple X close button */
+
+        .viewer-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            margin: 0 0 12px auto;
+            padding: 0;
+            background: transparent;
+            color: #B8F2E6;
+            border: 0;
+            border-radius: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 30px;
+            font-weight: normal;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .viewer-close:hover {
+            color: #FFFFFF;
+        }
+
+        .viewer-close:focus-visible {
+            outline: 2px solid #B8F2E6;
+            outline-offset: 3px;
+        }
+
+        /* Dividers and footer */
+
+        hr {
+            margin: 48px 0;
+            border: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.35);
+            opacity: 1;
+        }
+
+        .contact-area {
+            padding-bottom: 35px;
+        }
+
+        .email-link {
+            overflow-wrap: anywhere;
+        }
+
+        /* Smaller screens */
+
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 38px;
             }
-        }
 
-        /* One column on phones */
-        @media (max-width: 480px) {
+            .page-intro {
+                padding-top: 45px;
+            }
 
-            .graphics-grid,
-            .photo-grid {
-                grid-template-columns: 1fr;
+            .image-viewer {
+                padding: 14px;
             }
         }
     </style>
 </head>
 
-<body style="font-family: Arial, sans-serif;">
-    <h1 style="text-align: center;">James Martin</h1>
+<body id="top">
 
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="works.html">My Projects</a></li>
-        <li><a href="aboutme.html">About Me</a></li>
-    </ul>
+    <header class="site-header">
+        <nav class="container py-4 d-flex flex-column flex-sm-row justify-content-between gap-4"
+            aria-label="Main navigation">
 
-    <hr>
+            <a class="brand" href="index.html">James Martin</a>
 
-    <h2>Art 74 – Fall 2026</h2>
+            <ul class="navigation list-unstyled d-flex flex-wrap gap-4 mb-0">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="works.html" aria-current="page">My Projects</a></li>
+                <li><a href="aboutme.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <p>
-        In Art 74, I explore digital media through glitch art, image and
-        video remixing, web design, and interactive coding. Using tools
-        like Photoshop, Illustrator, HTML, and CSS, I create work that
-        examines how technology and internet culture shape meaning
-        and experience.
-    </p>
+    <main class="container">
 
-    <div style="display: flex; flex-direction: column; gap: 25px;">
+        <section class="page-intro" aria-labelledby="page-title">
+            <h1 id="page-title" class="mb-4">My Projects</h1>
 
-        <div style="width: 450px; max-width: 100%;">
-            <video controls style="display: block; width: 100%;">
-                <source src="images/mashup.mp4" type="video/mp4">
-                Your browser does not support video playback.
-            </video>
+            <p class="mb-4">Click an image to see a larger view.</p>
 
-            <p style="text-align: center;">Mashup Mixed Media Art</p>
+            <nav aria-label="Project categories">
+                <ul class="list-unstyled d-flex flex-wrap gap-4 mb-0">
+                    <li><a href="#art-74">Art 74</a></li>
+                    <li><a href="#graphic-design">Graphic Design</a></li>
+                    <li><a href="#photography">Photography</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <hr>
+
+        <!-- Art 74 -->
+
+        <section id="art-74" aria-labelledby="art-title">
+            <h2 id="art-title" class="mb-3">Art 74 – Fall 2026</h2>
+
+            <p class="section-description mb-4">
+                In Art 74, I explore digital media through glitch art, image and
+                video remixing, web design, and interactive coding. Using tools
+                like Photoshop, Illustrator, HTML, and CSS, I create work that
+                examines how technology and internet culture shape meaning
+                and experience.
+            </p>
+
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+
+                <article class="col">
+                    <video class="project-media" controls preload="metadata" aria-label="Mashup Mixed Media Art">
+                        <source src="images/mashup.mp4" type="video/mp4">
+                        Your browser does not support video playback.
+                    </video>
+
+                    <h3 class="project-title">Mashup Mixed Media Art</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Google Colab, Adobe Premiere, and Handshake
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="meme-view"
+                        aria-label="Enlarge Meme Mashup">
+                        <img class="project-media" src="images/mememashup.png" alt="Meme Mashup artwork">
+                    </button>
+
+                    <h3 class="project-title">Meme Mashup</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="glitch-view"
+                        aria-label="Enlarge Glitch Art">
+                        <img class="project-media" src="images/glitch.png" alt="Glitch art with fluid orange colors"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Glitch Art</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        TextEdit
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="hypertext-view"
+                        aria-label="Enlarge Hypertext Project preview">
+                        <img class="project-media" src="images/before_i_start.png" alt="Preview of my Hypertext Project"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">
+                        <a href="hypertext.github.io/index.html">
+                            Hypertext Project
+                        </a>
+                    </h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        HTML, CSS, and TextEdit
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Graphic Design -->
+
+        <section id="graphic-design" aria-labelledby="design-title">
+            <h2 id="design-title" class="mb-3">Graphic Design</h2>
+
+            <p class="section-description mb-4">
+                I enjoy exploring typography, color, and composition to create
+                graphics that communicate ideas and express my style. I learned
+                the foundations of graphic design at Cuesta College and use the
+                Adobe Creative Suite to bring my ideas to life.
+            </p>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-1-view"
+                        aria-label="Enlarge Graphic Design 1">
+                        <img class="project-media" src="images/graphic_1.jpg" alt="Graphic design artwork 1"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 1</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop and Adobe Illustrator
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-2-view"
+                        aria-label="Enlarge Graphic Design 2">
+                        <img class="project-media" src="images/graphic_2.jpeg" alt="Graphic design artwork 2"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 2</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop and Adobe Illustrator
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-3-view"
+                        aria-label="Enlarge Graphic Design 3">
+                        <img class="project-media" src="images/graphic_3.jpg" alt="Graphic design artwork 3"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 3</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop and Adobe Illustrator
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-4-view"
+                        aria-label="Enlarge Graphic Design 4">
+                        <img class="project-media" src="images/graphic_4.jpg" alt="Graphic design artwork 4"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 4</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop and Adobe Illustrator
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-5-view"
+                        aria-label="Enlarge Graphic Design 5">
+                        <img class="project-media" src="images/graphic_5.jpg" alt="Graphic design artwork 5"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 5</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe InDesign
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-6-view"
+                        aria-label="Enlarge Graphic Design 6">
+                        <img class="project-media" src="images/graphic_6.png" alt="Graphic design artwork 6"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 6</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-7-view"
+                        aria-label="Enlarge Graphic Design 7">
+                        <img class="project-media" src="images/graphic_7.png" alt="Graphic design artwork 7"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 7</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="graphic-8-view"
+                        aria-label="Enlarge Graphic Design 8">
+                        <img class="project-media" src="images/graphic_8.jpg" alt="Graphic design artwork 8"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Graphic Design 8</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Adobe Photoshop
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <hr>
+
+        <!-- Photography -->
+
+        <section id="photography" aria-labelledby="photo-title">
+            <h2 id="photo-title" class="mb-3">Photography</h2>
+
+            <p class="section-description mb-4">
+                Photography is where my creative journey began, sparking my
+                passion for visual storytelling. I enjoy capturing personality
+                and emotion through portraits and exploring how light, color,
+                and composition can turn everyday moments into something
+                expressive.
+            </p>
+
+            <div class="photo-grid row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-1-view"
+                        aria-label="Enlarge Photo 1">
+                        <img class="project-media" src="images/photo_1.jpg"
+                            alt="Black-and-white portrait of a person wearing glasses by the beach" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 1</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Sony A7R II, 35mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-2-view"
+                        aria-label="Enlarge Photo 2">
+                        <img class="project-media" src="images/photo_2.jpg"
+                            alt="Close-up portrait with closed eyes and a feather beside the face" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 2</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-3-view"
+                        aria-label="Enlarge Photo 3">
+                        <img class="project-media" src="images/photo_3.jpg"
+                            alt="Black-and-white portrait with hands beneath the chin" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 3</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-4-view"
+                        aria-label="Enlarge Photo 4">
+                        <img class="project-media" src="images/photo_4.jpg"
+                            alt="Outdoor portrait of a person shielding their eyes in a grassy field" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 4</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Sony A7R II, 35mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-5-view"
+                        aria-label="Enlarge Photo 5">
+                        <img class="project-media" src="images/photo_5.jpg"
+                            alt="Portrait framed by white feathers against a dark background" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 5</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-6-view"
+                        aria-label="Enlarge Photo 6">
+                        <img class="project-media" src="images/photo_6.jpeg"
+                            alt="Window-lit portrait of a person wearing a purple shirt" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 6</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-7-view"
+                        aria-label="Enlarge Photo 7">
+                        <img class="project-media" src="images/photo_7.jpg"
+                            alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
+                            loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 7</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Sony A7R II, 35mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-8-view"
+                        aria-label="Enlarge Photo 8">
+                        <img class="project-media" src="images/photo_8.jpg"
+                            alt="Studio portrait of a person holding a daisy near their mouth" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 8</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-9-view"
+                        aria-label="Enlarge Photo 9">
+                        <img class="project-media" src="images/photo_9.jpg"
+                            alt="Black-and-white portrait of a person adjusting a face mask" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 9</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Canon T7R Rebel, 55mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+                <article class="col">
+                    <button class="image-button" type="button" popovertarget="photo-10-view"
+                        aria-label="Enlarge Photo 10">
+                        <img class="project-media" src="images/photo_10.jpeg"
+                            alt="Red doorway framed by white flowers and stone walls" loading="lazy">
+                    </button>
+
+                    <h3 class="project-title">Photo 10</h3>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Sony A7R II, 35mm lens, and Adobe Photoshop
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <hr>
+
+    </main>
+
+    <footer class="container contact-area">
+        <div class="row align-items-center gy-4">
+
+            <div class="col-md-5">
+                <h2 class="mb-0">Let's Connect!</h2>
+            </div>
+
+            <div class="col-md-7">
+                <ul class="list-unstyled d-flex flex-wrap justify-content-md-end gap-4 mb-0">
+                    <li>
+                        <a href="https://www.linkedin.com/in/jamesmartin-h">
+                            LinkedIn
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="email-link" href="mailto:jameshmartin.studio@gmail.com">
+                            jameshmartin.studio@gmail.com
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <div style="width: 350px; max-width: 100%; align-self: flex-start;">
-            <img src="images/mememashup.png" alt="Meme Mashup artwork"
-                style="display: block; width: 100%; height: auto;">
+        <p class="text-end mt-4 mb-0">
+            <a href="#top">Back to Top &uarr;</a>
+        </p>
+    </footer>
 
-            <p style="text-align: center;">Meme Mashup</p>
-        </div>
+    <!-- Enlarged Art 74 images -->
 
-        <div style="width: 550px; max-width: 100%; align-self: flex-start;">
-            <img src="images/glitch.png" alt="Glitch art with a fluid orange color artwork"
-                style="display: block; width: 100%; height: auto;">
+    <div class="image-viewer" id="meme-view" popover role="dialog" aria-label="Meme Mashup larger view">
 
-            <p style="text-align: center;">Glitch Art</p>
-        </div>
+        <button class="viewer-close" type="button" popovertarget="meme-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
 
+        <img src="images/mememashup.png" alt="Meme Mashup artwork" loading="lazy">
+
+        <p>Meme Mashup</p>
     </div>
 
-    <div style="width: 650px; max-width: 100%; margin: 25px auto; text-align: center;">
-        <a href="hypertext.github.io/index.html">
-            <img src="images/before_i_start.png" alt="Try out my Hypertext Project!"
-                style="display: block; width: 100%; height: auto;">
-        </a>
+    <div class="image-viewer" id="glitch-view" popover role="dialog" aria-label="Glitch Art larger view">
 
-        <p>Hypertext Project</p>
+        <button class="viewer-close" type="button" popovertarget="glitch-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/glitch.png" alt="Glitch art with fluid orange colors" loading="lazy">
+
+        <p>Glitch Art</p>
     </div>
 
-    <hr>
+    <div class="image-viewer" id="hypertext-view" popover role="dialog" aria-label="Hypertext Project larger view">
 
-    <h2>Graphic Design</h2>
+        <button class="viewer-close" type="button" popovertarget="hypertext-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
 
-    <p>
-        I enjoy exploring typography, color, and composition to create graphics that communicate ideas and express my
-        style. I learned the foundations of graphic design at Cuesta College and use the Adobe Creative Suite to bring
-        my ideas to life.
-    </p>
+        <img src="images/before_i_start.png" alt="Preview of my Hypertext Project" loading="lazy">
 
-    <div class="graphics-grid">
+        <p>
+            <a href="hypertext.github.io/index.html">
+                Open Hypertext Project
+            </a>
+        </p>
+    </div>
+
+    <!-- Enlarged graphic design images -->
+
+    <div class="image-viewer" id="graphic-1-view" popover role="dialog" aria-label="Graphic Design 1 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-1-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
         <img src="images/graphic_1.jpg" alt="Graphic design artwork 1" loading="lazy">
-        <img src="images/graphic_2.jpeg" alt="Graphic design artwork 2" loading="lazy">
-        <img src="images/graphic_3.jpg" alt="Graphic design artwork 3" loading="lazy">
-        <img src="images/graphic_4.jpg" alt="Graphic design artwork 4" loading="lazy">
-        <img src="images/graphic_5.jpg" alt="Graphic design artwork 5" loading="lazy">
-        <img src="images/graphic_6.png" alt="Graphic design artwork 6" loading="lazy">
-        <img src="images/graphic_7.png" alt="Graphic design artwork 7" loading="lazy">
-        <img src="images/graphic_8.jpg" alt="Graphic design artwork 8" loading="lazy">
+
+        <p>Graphic Design 1</p>
     </div>
 
-    <hr>
+    <div class="image-viewer" id="graphic-2-view" popover role="dialog" aria-label="Graphic Design 2 larger view">
 
-    <h2>Photography</h2>
+        <button class="viewer-close" type="button" popovertarget="graphic-2-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
 
-    <p>
-        Photography is where my creative journey began, sparking my passion for visual storytelling. I enjoy capturing
-        personality and emotion through portraits and exploring how light, color, and composition can turn everyday
-        moments into something expressive.
-    </p>
+        <img src="images/graphic_2.jpeg" alt="Graphic design artwork 2" loading="lazy">
 
-    <div class="photo-grid">
+        <p>Graphic Design 2</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-3-view" popover role="dialog" aria-label="Graphic Design 3 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-3-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_3.jpg" alt="Graphic design artwork 3" loading="lazy">
+
+        <p>Graphic Design 3</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-4-view" popover role="dialog" aria-label="Graphic Design 4 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-4-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_4.jpg" alt="Graphic design artwork 4" loading="lazy">
+
+        <p>Graphic Design 4</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-5-view" popover role="dialog" aria-label="Graphic Design 5 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-5-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_5.jpg" alt="Graphic design artwork 5" loading="lazy">
+
+        <p>Graphic Design 5</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-6-view" popover role="dialog" aria-label="Graphic Design 6 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-6-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_6.png" alt="Graphic design artwork 6" loading="lazy">
+
+        <p>Graphic Design 6</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-7-view" popover role="dialog" aria-label="Graphic Design 7 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-7-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_7.png" alt="Graphic design artwork 7" loading="lazy">
+
+        <p>Graphic Design 7</p>
+    </div>
+
+    <div class="image-viewer" id="graphic-8-view" popover role="dialog" aria-label="Graphic Design 8 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="graphic-8-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/graphic_8.jpg" alt="Graphic design artwork 8" loading="lazy">
+
+        <p>Graphic Design 8</p>
+    </div>
+
+    <!-- Enlarged photography images -->
+
+    <div class="image-viewer" id="photo-1-view" popover role="dialog" aria-label="Photo 1 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-1-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
         <img src="images/photo_1.jpg" alt="Black-and-white portrait of a person wearing glasses by the beach"
             loading="lazy">
-        <img src="images/photo_2.jpg" alt="Close-up portrait with closed eyes and a feather beside the face"
-            loading="lazy">
-        <img src="images/photo_3.jpg" alt="Black-and-white portrait with hands beneath the chin" loading="lazy">
-        <img src="images/photo_4.jpg" alt="Outdoor portrait of a person shielding their eyes in a grassy field"
-            loading="lazy">
-        <img src="images/photo_5.jpg" alt="Portrait framed by white feathers against a dark background" loading="lazy">
-        <img src="images/photo_6.jpeg" alt="Window-lit portrait of a person wearing a purple shirt" loading="lazy">
-        <img src="images/photo_7.jpg" alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
-            loading="lazy">
-        <img src="images/photo_8.jpg" alt="Studio portrait of a person holding a daisy near their mouth" loading="lazy">
-        <img src="images/photo_9.jpg" alt="Black-and-white portrait of a person adjusting a face mask" loading="lazy">
-        <img src="images/photo_10.jpeg" alt="Red doorway framed by white flowers and stone walls" loading="lazy">
+
+        <p>Photo 1</p>
     </div>
 
-    <hr>
+    <div class="image-viewer" id="photo-2-view" popover role="dialog" aria-label="Photo 2 larger view">
 
-    <ul>
-        <li><a href="http://www.linkedin.com/in/jamesmartin-h">LinkedIn</a></li>
-        <li><a href="mailto:jameshmartin.studio@gmail.com">jameshmartin.studio@gmail.com</a></li>
-    </ul>
+        <button class="viewer-close" type="button" popovertarget="photo-2-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
 
-    <p><a href="#">Back to Top</a></p>
+        <img src="images/photo_2.jpg" alt="Close-up portrait with closed eyes and a feather beside the face"
+            loading="lazy">
+
+        <p>Photo 2</p>
+    </div>
+
+    <div class="image-viewer" id="photo-3-view" popover role="dialog" aria-label="Photo 3 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-3-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_3.jpg" alt="Black-and-white portrait with hands beneath the chin" loading="lazy">
+
+        <p>Photo 3</p>
+    </div>
+
+    <div class="image-viewer" id="photo-4-view" popover role="dialog" aria-label="Photo 4 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-4-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_4.jpg" alt="Outdoor portrait of a person shielding their eyes in a grassy field"
+            loading="lazy">
+
+        <p>Photo 4</p>
+    </div>
+
+    <div class="image-viewer" id="photo-5-view" popover role="dialog" aria-label="Photo 5 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-5-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_5.jpg" alt="Portrait framed by white feathers against a dark background" loading="lazy">
+
+        <p>Photo 5</p>
+    </div>
+
+    <div class="image-viewer" id="photo-6-view" popover role="dialog" aria-label="Photo 6 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-6-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_6.jpeg" alt="Window-lit portrait of a person wearing a purple shirt" loading="lazy">
+
+        <p>Photo 6</p>
+    </div>
+
+    <div class="image-viewer" id="photo-7-view" popover role="dialog" aria-label="Photo 7 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-7-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_7.jpg" alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
+            loading="lazy">
+
+        <p>Photo 7</p>
+    </div>
+
+    <div class="image-viewer" id="photo-8-view" popover role="dialog" aria-label="Photo 8 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-8-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_8.jpg" alt="Studio portrait of a person holding a daisy near their mouth" loading="lazy">
+
+        <p>Photo 8</p>
+    </div>
+
+    <div class="image-viewer" id="photo-9-view" popover role="dialog" aria-label="Photo 9 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-9-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_9.jpg" alt="Black-and-white portrait of a person adjusting a face mask" loading="lazy">
+
+        <p>Photo 9</p>
+    </div>
+
+    <div class="image-viewer" id="photo-10-view" popover role="dialog" aria-label="Photo 10 larger view">
+
+        <button class="viewer-close" type="button" popovertarget="photo-10-view" popovertargetaction="hide"
+            aria-label="Close enlarged image" autofocus>
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <img src="images/photo_10.jpeg" alt="Red doorway framed by white flowers and stone walls" loading="lazy">
+
+        <p>Photo 10</p>
+    </div>
+
 </body>
 
 </html>
