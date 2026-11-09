@@ -6,10 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>James Martin - My Projects</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Bootstrap CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+          crossorigin="anonymous">
 
     <style>
+        /* Background and typography */
+
         body {
             background-color: #051F20;
             color: #FFFFFF;
@@ -19,6 +24,8 @@
         .container {
             max-width: 1120px;
         }
+
+        /* Links */
 
         a:link {
             color: #FFE08A;
@@ -139,6 +146,26 @@
             color: #B8F2E6;
         }
 
+        /* Embedded drawing tool */
+
+        .drawing-project {
+            width: 100%;
+        }
+
+        .drawing-frame {
+            display: block;
+            width: 100%;
+            height: 700px;
+            border: none;
+            border-radius: 8px;
+            background-color: #FFFFFF;
+        }
+
+        .project-description {
+            max-width: 850px;
+            line-height: 1.8;
+        }
+
         /* Enlarged images */
 
         .image-viewer {
@@ -240,32 +267,54 @@
 
 <body id="top">
 
+    <!-- Header -->
+
     <header class="site-header">
         <nav class="container py-4 d-flex flex-column flex-sm-row justify-content-between gap-4"
-            aria-label="Main navigation">
+             aria-label="Main navigation">
 
             <a class="brand" href="index.html">James Martin</a>
 
             <ul class="navigation list-unstyled d-flex flex-wrap gap-4 mb-0">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="works.html" aria-current="page">My Projects</a></li>
-                <li><a href="aboutme.html">About Me</a></li>
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="works.html" aria-current="page">My Projects</a>
+                </li>
+
+                <li>
+                    <a href="aboutme.html">About Me</a>
+                </li>
             </ul>
         </nav>
     </header>
 
     <main class="container">
 
+        <!-- Introduction -->
+
         <section class="page-intro" aria-labelledby="page-title">
             <h1 id="page-title" class="mb-4">My Projects</h1>
 
-            <p class="mb-4">Click an image to see a larger view.</p>
+            <p class="mb-4">
+                Click an image to see a larger view.
+            </p>
 
             <nav aria-label="Project categories">
                 <ul class="list-unstyled d-flex flex-wrap gap-4 mb-0">
-                    <li><a href="#art-74">Art 74</a></li>
-                    <li><a href="#graphic-design">Graphic Design</a></li>
-                    <li><a href="#photography">Photography</a></li>
+                    <li>
+                        <a href="#art-74">Art 74</a>
+                    </li>
+
+                    <li>
+                        <a href="#graphic-design">Graphic Design</a>
+                    </li>
+
+                    <li>
+                        <a href="#photography">Photography</a>
+                    </li>
                 </ul>
             </nav>
         </section>
@@ -287,8 +336,13 @@
 
             <div class="row row-cols-1 row-cols-md-2 g-4">
 
+                <!-- Mashup video -->
+
                 <article class="col">
-                    <video class="project-media" controls preload="metadata" aria-label="Mashup Mixed Media Art">
+                    <video class="project-media"
+                           controls
+                           preload="metadata"
+                           aria-label="Mashup Mixed Media Art">
                         <source src="images/mashup.mp4" type="video/mp4">
                         Your browser does not support video playback.
                     </video>
@@ -301,10 +355,16 @@
                     </p>
                 </article>
 
+                <!-- Meme Mashup -->
+
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="meme-view"
-                        aria-label="Enlarge Meme Mashup">
-                        <img class="project-media" src="images/mememashup.png" alt="Meme Mashup artwork">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="meme-view"
+                            aria-label="Enlarge Meme Mashup">
+                        <img class="project-media"
+                             src="images/mememashup.png"
+                             alt="Meme Mashup artwork">
                     </button>
 
                     <h3 class="project-title">Meme Mashup</h3>
@@ -315,11 +375,17 @@
                     </p>
                 </article>
 
+                <!-- Glitch Art -->
+
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="glitch-view"
-                        aria-label="Enlarge Glitch Art">
-                        <img class="project-media" src="images/glitch.png" alt="Glitch art with fluid orange colors"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="glitch-view"
+                            aria-label="Enlarge Glitch Art">
+                        <img class="project-media"
+                             src="images/glitch.png"
+                             alt="Glitch art with fluid orange colors"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Glitch Art</h3>
@@ -330,11 +396,17 @@
                     </p>
                 </article>
 
+                <!-- Hypertext Project -->
+
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="hypertext-view"
-                        aria-label="Enlarge Hypertext Project preview">
-                        <img class="project-media" src="images/before_i_start.png" alt="Preview of my Hypertext Project"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="hypertext-view"
+                            aria-label="Enlarge Hypertext Project preview">
+                        <img class="project-media"
+                             src="images/before_i_start.png"
+                             alt="Preview of my Hypertext Project"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">
@@ -346,6 +418,36 @@
                     <p class="tools">
                         <strong>Tools used:</strong>
                         HTML, CSS, and TextEdit
+                    </p>
+                </article>
+
+                <!-- Splatter Drawing Tool -->
+
+                <article class="col drawing-project">
+                    <iframe class="drawing-frame"
+                            src="splatter_drawing_tool_2026/index.html"
+                            title="Splatter interactive drawing tool"
+                            loading="lazy">
+                    </iframe>
+
+                    <h3 class="project-title">Splatter Drawing Tool</h3>
+
+                    <p class="project-description">
+                        An interactive drawing tool that reimagines traditional
+                        brushes through pixelated textures and digital effects.
+                        Experiment with different brushes, colors, and sizes
+                        to create your own artwork.
+                    </p>
+
+                    <p>
+                        <a href="splatter_drawing_tool_2026/index.html">
+                            Open the drawing tool on its own page &rarr;
+                        </a>
+                    </p>
+
+                    <p class="tools">
+                        <strong>Tools used:</strong>
+                        Processing: p5.js 
                     </p>
                 </article>
 
@@ -369,10 +471,14 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-1-view"
-                        aria-label="Enlarge Graphic Design 1">
-                        <img class="project-media" src="images/graphic_1.jpg" alt="Graphic design artwork 1"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-1-view"
+                            aria-label="Enlarge Graphic Design 1">
+                        <img class="project-media"
+                             src="images/graphic_1.jpg"
+                             alt="Graphic design artwork 1"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 1</h3>
@@ -384,10 +490,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-2-view"
-                        aria-label="Enlarge Graphic Design 2">
-                        <img class="project-media" src="images/graphic_2.jpeg" alt="Graphic design artwork 2"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-2-view"
+                            aria-label="Enlarge Graphic Design 2">
+                        <img class="project-media"
+                             src="images/graphic_2.jpeg"
+                             alt="Graphic design artwork 2"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 2</h3>
@@ -399,10 +509,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-3-view"
-                        aria-label="Enlarge Graphic Design 3">
-                        <img class="project-media" src="images/graphic_3.jpg" alt="Graphic design artwork 3"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-3-view"
+                            aria-label="Enlarge Graphic Design 3">
+                        <img class="project-media"
+                             src="images/graphic_3.jpg"
+                             alt="Graphic design artwork 3"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 3</h3>
@@ -414,10 +528,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-4-view"
-                        aria-label="Enlarge Graphic Design 4">
-                        <img class="project-media" src="images/graphic_4.jpg" alt="Graphic design artwork 4"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-4-view"
+                            aria-label="Enlarge Graphic Design 4">
+                        <img class="project-media"
+                             src="images/graphic_4.jpg"
+                             alt="Graphic design artwork 4"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 4</h3>
@@ -429,10 +547,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-5-view"
-                        aria-label="Enlarge Graphic Design 5">
-                        <img class="project-media" src="images/graphic_5.jpg" alt="Graphic design artwork 5"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-5-view"
+                            aria-label="Enlarge Graphic Design 5">
+                        <img class="project-media"
+                             src="images/graphic_5.jpg"
+                             alt="Graphic design artwork 5"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 5</h3>
@@ -444,10 +566,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-6-view"
-                        aria-label="Enlarge Graphic Design 6">
-                        <img class="project-media" src="images/graphic_6.png" alt="Graphic design artwork 6"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-6-view"
+                            aria-label="Enlarge Graphic Design 6">
+                        <img class="project-media"
+                             src="images/graphic_6.png"
+                             alt="Graphic design artwork 6"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 6</h3>
@@ -459,10 +585,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-7-view"
-                        aria-label="Enlarge Graphic Design 7">
-                        <img class="project-media" src="images/graphic_7.png" alt="Graphic design artwork 7"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-7-view"
+                            aria-label="Enlarge Graphic Design 7">
+                        <img class="project-media"
+                             src="images/graphic_7.png"
+                             alt="Graphic design artwork 7"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 7</h3>
@@ -474,10 +604,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="graphic-8-view"
-                        aria-label="Enlarge Graphic Design 8">
-                        <img class="project-media" src="images/graphic_8.jpg" alt="Graphic design artwork 8"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="graphic-8-view"
+                            aria-label="Enlarge Graphic Design 8">
+                        <img class="project-media"
+                             src="images/graphic_8.jpg"
+                             alt="Graphic design artwork 8"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Graphic Design 8</h3>
@@ -509,10 +643,14 @@
             <div class="photo-grid row row-cols-1 row-cols-sm-2 row-cols-lg-5 g-4">
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-1-view"
-                        aria-label="Enlarge Photo 1">
-                        <img class="project-media" src="images/photo_1.jpg"
-                            alt="Black-and-white portrait of a person wearing glasses by the beach" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-1-view"
+                            aria-label="Enlarge Photo 1">
+                        <img class="project-media"
+                             src="images/photo_1.jpg"
+                             alt="Black-and-white portrait of a person wearing glasses by the beach"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 1</h3>
@@ -524,10 +662,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-2-view"
-                        aria-label="Enlarge Photo 2">
-                        <img class="project-media" src="images/photo_2.jpg"
-                            alt="Close-up portrait with closed eyes and a feather beside the face" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-2-view"
+                            aria-label="Enlarge Photo 2">
+                        <img class="project-media"
+                             src="images/photo_2.jpg"
+                             alt="Close-up portrait with closed eyes and a feather beside the face"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 2</h3>
@@ -539,10 +681,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-3-view"
-                        aria-label="Enlarge Photo 3">
-                        <img class="project-media" src="images/photo_3.jpg"
-                            alt="Black-and-white portrait with hands beneath the chin" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-3-view"
+                            aria-label="Enlarge Photo 3">
+                        <img class="project-media"
+                             src="images/photo_3.jpg"
+                             alt="Black-and-white portrait with hands beneath the chin"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 3</h3>
@@ -554,10 +700,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-4-view"
-                        aria-label="Enlarge Photo 4">
-                        <img class="project-media" src="images/photo_4.jpg"
-                            alt="Outdoor portrait of a person shielding their eyes in a grassy field" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-4-view"
+                            aria-label="Enlarge Photo 4">
+                        <img class="project-media"
+                             src="images/photo_4.jpg"
+                             alt="Outdoor portrait of a person shielding their eyes in a grassy field"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 4</h3>
@@ -569,10 +719,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-5-view"
-                        aria-label="Enlarge Photo 5">
-                        <img class="project-media" src="images/photo_5.jpg"
-                            alt="Portrait framed by white feathers against a dark background" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-5-view"
+                            aria-label="Enlarge Photo 5">
+                        <img class="project-media"
+                             src="images/photo_5.jpg"
+                             alt="Portrait framed by white feathers against a dark background"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 5</h3>
@@ -584,10 +738,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-6-view"
-                        aria-label="Enlarge Photo 6">
-                        <img class="project-media" src="images/photo_6.jpeg"
-                            alt="Window-lit portrait of a person wearing a purple shirt" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-6-view"
+                            aria-label="Enlarge Photo 6">
+                        <img class="project-media"
+                             src="images/photo_6.jpeg"
+                             alt="Window-lit portrait of a person wearing a purple shirt"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 6</h3>
@@ -599,11 +757,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-7-view"
-                        aria-label="Enlarge Photo 7">
-                        <img class="project-media" src="images/photo_7.jpg"
-                            alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
-                            loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-7-view"
+                            aria-label="Enlarge Photo 7">
+                        <img class="project-media"
+                             src="images/photo_7.jpg"
+                             alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 7</h3>
@@ -615,10 +776,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-8-view"
-                        aria-label="Enlarge Photo 8">
-                        <img class="project-media" src="images/photo_8.jpg"
-                            alt="Studio portrait of a person holding a daisy near their mouth" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-8-view"
+                            aria-label="Enlarge Photo 8">
+                        <img class="project-media"
+                             src="images/photo_8.jpg"
+                             alt="Studio portrait of a person holding a daisy near their mouth"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 8</h3>
@@ -630,10 +795,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-9-view"
-                        aria-label="Enlarge Photo 9">
-                        <img class="project-media" src="images/photo_9.jpg"
-                            alt="Black-and-white portrait of a person adjusting a face mask" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-9-view"
+                            aria-label="Enlarge Photo 9">
+                        <img class="project-media"
+                             src="images/photo_9.jpg"
+                             alt="Black-and-white portrait of a person adjusting a face mask"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 9</h3>
@@ -645,10 +814,14 @@
                 </article>
 
                 <article class="col">
-                    <button class="image-button" type="button" popovertarget="photo-10-view"
-                        aria-label="Enlarge Photo 10">
-                        <img class="project-media" src="images/photo_10.jpeg"
-                            alt="Red doorway framed by white flowers and stone walls" loading="lazy">
+                    <button class="image-button"
+                            type="button"
+                            popovertarget="photo-10-view"
+                            aria-label="Enlarge Photo 10">
+                        <img class="project-media"
+                             src="images/photo_10.jpeg"
+                             alt="Red doorway framed by white flowers and stone walls"
+                             loading="lazy">
                     </button>
 
                     <h3 class="project-title">Photo 10</h3>
@@ -666,6 +839,8 @@
 
     </main>
 
+    <!-- Footer -->
+
     <footer class="container contact-area">
         <div class="row align-items-center gy-4">
 
@@ -682,7 +857,8 @@
                     </li>
 
                     <li>
-                        <a class="email-link" href="mailto:jameshmartin.studio@gmail.com">
+                        <a class="email-link"
+                           href="mailto:jameshmartin.studio@gmail.com">
                             jameshmartin.studio@gmail.com
                         </a>
                     </li>
@@ -698,38 +874,68 @@
 
     <!-- Enlarged Art 74 images -->
 
-    <div class="image-viewer" id="meme-view" popover role="dialog" aria-label="Meme Mashup larger view">
+    <div class="image-viewer"
+         id="meme-view"
+         popover
+         role="dialog"
+         aria-label="Meme Mashup larger view">
 
-        <button class="viewer-close" type="button" popovertarget="meme-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="meme-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/mememashup.png" alt="Meme Mashup artwork" loading="lazy">
+        <img src="images/mememashup.png"
+             alt="Meme Mashup artwork"
+             loading="lazy">
 
         <p>Meme Mashup</p>
     </div>
 
-    <div class="image-viewer" id="glitch-view" popover role="dialog" aria-label="Glitch Art larger view">
+    <div class="image-viewer"
+         id="glitch-view"
+         popover
+         role="dialog"
+         aria-label="Glitch Art larger view">
 
-        <button class="viewer-close" type="button" popovertarget="glitch-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="glitch-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/glitch.png" alt="Glitch art with fluid orange colors" loading="lazy">
+        <img src="images/glitch.png"
+             alt="Glitch art with fluid orange colors"
+             loading="lazy">
 
         <p>Glitch Art</p>
     </div>
 
-    <div class="image-viewer" id="hypertext-view" popover role="dialog" aria-label="Hypertext Project larger view">
+    <div class="image-viewer"
+         id="hypertext-view"
+         popover
+         role="dialog"
+         aria-label="Hypertext Project larger view">
 
-        <button class="viewer-close" type="button" popovertarget="hypertext-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="hypertext-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/before_i_start.png" alt="Preview of my Hypertext Project" loading="lazy">
+        <img src="images/before_i_start.png"
+             alt="Preview of my Hypertext Project"
+             loading="lazy">
 
         <p>
             <a href="hypertext.github.io/index.html">
@@ -740,224 +946,400 @@
 
     <!-- Enlarged graphic design images -->
 
-    <div class="image-viewer" id="graphic-1-view" popover role="dialog" aria-label="Graphic Design 1 larger view">
+    <div class="image-viewer"
+         id="graphic-1-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 1 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-1-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-1-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_1.jpg" alt="Graphic design artwork 1" loading="lazy">
+        <img src="images/graphic_1.jpg"
+             alt="Graphic design artwork 1"
+             loading="lazy">
 
         <p>Graphic Design 1</p>
     </div>
 
-    <div class="image-viewer" id="graphic-2-view" popover role="dialog" aria-label="Graphic Design 2 larger view">
+    <div class="image-viewer"
+         id="graphic-2-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 2 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-2-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-2-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_2.jpeg" alt="Graphic design artwork 2" loading="lazy">
+        <img src="images/graphic_2.jpeg"
+             alt="Graphic design artwork 2"
+             loading="lazy">
 
         <p>Graphic Design 2</p>
     </div>
 
-    <div class="image-viewer" id="graphic-3-view" popover role="dialog" aria-label="Graphic Design 3 larger view">
+    <div class="image-viewer"
+         id="graphic-3-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 3 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-3-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-3-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_3.jpg" alt="Graphic design artwork 3" loading="lazy">
+        <img src="images/graphic_3.jpg"
+             alt="Graphic design artwork 3"
+             loading="lazy">
 
         <p>Graphic Design 3</p>
     </div>
 
-    <div class="image-viewer" id="graphic-4-view" popover role="dialog" aria-label="Graphic Design 4 larger view">
+    <div class="image-viewer"
+         id="graphic-4-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 4 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-4-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-4-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_4.jpg" alt="Graphic design artwork 4" loading="lazy">
+        <img src="images/graphic_4.jpg"
+             alt="Graphic design artwork 4"
+             loading="lazy">
 
         <p>Graphic Design 4</p>
     </div>
 
-    <div class="image-viewer" id="graphic-5-view" popover role="dialog" aria-label="Graphic Design 5 larger view">
+    <div class="image-viewer"
+         id="graphic-5-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 5 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-5-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-5-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_5.jpg" alt="Graphic design artwork 5" loading="lazy">
+        <img src="images/graphic_5.jpg"
+             alt="Graphic design artwork 5"
+             loading="lazy">
 
         <p>Graphic Design 5</p>
     </div>
 
-    <div class="image-viewer" id="graphic-6-view" popover role="dialog" aria-label="Graphic Design 6 larger view">
+    <div class="image-viewer"
+         id="graphic-6-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 6 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-6-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-6-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_6.png" alt="Graphic design artwork 6" loading="lazy">
+        <img src="images/graphic_6.png"
+             alt="Graphic design artwork 6"
+             loading="lazy">
 
         <p>Graphic Design 6</p>
     </div>
 
-    <div class="image-viewer" id="graphic-7-view" popover role="dialog" aria-label="Graphic Design 7 larger view">
+    <div class="image-viewer"
+         id="graphic-7-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 7 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-7-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-7-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_7.png" alt="Graphic design artwork 7" loading="lazy">
+        <img src="images/graphic_7.png"
+             alt="Graphic design artwork 7"
+             loading="lazy">
 
         <p>Graphic Design 7</p>
     </div>
 
-    <div class="image-viewer" id="graphic-8-view" popover role="dialog" aria-label="Graphic Design 8 larger view">
+    <div class="image-viewer"
+         id="graphic-8-view"
+         popover
+         role="dialog"
+         aria-label="Graphic Design 8 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="graphic-8-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="graphic-8-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/graphic_8.jpg" alt="Graphic design artwork 8" loading="lazy">
+        <img src="images/graphic_8.jpg"
+             alt="Graphic design artwork 8"
+             loading="lazy">
 
         <p>Graphic Design 8</p>
     </div>
 
     <!-- Enlarged photography images -->
 
-    <div class="image-viewer" id="photo-1-view" popover role="dialog" aria-label="Photo 1 larger view">
+    <div class="image-viewer"
+         id="photo-1-view"
+         popover
+         role="dialog"
+         aria-label="Photo 1 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-1-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-1-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_1.jpg" alt="Black-and-white portrait of a person wearing glasses by the beach"
-            loading="lazy">
+        <img src="images/photo_1.jpg"
+             alt="Black-and-white portrait of a person wearing glasses by the beach"
+             loading="lazy">
 
         <p>Photo 1</p>
     </div>
 
-    <div class="image-viewer" id="photo-2-view" popover role="dialog" aria-label="Photo 2 larger view">
+    <div class="image-viewer"
+         id="photo-2-view"
+         popover
+         role="dialog"
+         aria-label="Photo 2 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-2-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-2-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_2.jpg" alt="Close-up portrait with closed eyes and a feather beside the face"
-            loading="lazy">
+        <img src="images/photo_2.jpg"
+             alt="Close-up portrait with closed eyes and a feather beside the face"
+             loading="lazy">
 
         <p>Photo 2</p>
     </div>
 
-    <div class="image-viewer" id="photo-3-view" popover role="dialog" aria-label="Photo 3 larger view">
+    <div class="image-viewer"
+         id="photo-3-view"
+         popover
+         role="dialog"
+         aria-label="Photo 3 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-3-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-3-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_3.jpg" alt="Black-and-white portrait with hands beneath the chin" loading="lazy">
+        <img src="images/photo_3.jpg"
+             alt="Black-and-white portrait with hands beneath the chin"
+             loading="lazy">
 
         <p>Photo 3</p>
     </div>
 
-    <div class="image-viewer" id="photo-4-view" popover role="dialog" aria-label="Photo 4 larger view">
+    <div class="image-viewer"
+         id="photo-4-view"
+         popover
+         role="dialog"
+         aria-label="Photo 4 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-4-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-4-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_4.jpg" alt="Outdoor portrait of a person shielding their eyes in a grassy field"
-            loading="lazy">
+        <img src="images/photo_4.jpg"
+             alt="Outdoor portrait of a person shielding their eyes in a grassy field"
+             loading="lazy">
 
         <p>Photo 4</p>
     </div>
 
-    <div class="image-viewer" id="photo-5-view" popover role="dialog" aria-label="Photo 5 larger view">
+    <div class="image-viewer"
+         id="photo-5-view"
+         popover
+         role="dialog"
+         aria-label="Photo 5 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-5-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-5-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_5.jpg" alt="Portrait framed by white feathers against a dark background" loading="lazy">
+        <img src="images/photo_5.jpg"
+             alt="Portrait framed by white feathers against a dark background"
+             loading="lazy">
 
         <p>Photo 5</p>
     </div>
 
-    <div class="image-viewer" id="photo-6-view" popover role="dialog" aria-label="Photo 6 larger view">
+    <div class="image-viewer"
+         id="photo-6-view"
+         popover
+         role="dialog"
+         aria-label="Photo 6 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-6-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-6-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_6.jpeg" alt="Window-lit portrait of a person wearing a purple shirt" loading="lazy">
+        <img src="images/photo_6.jpeg"
+             alt="Window-lit portrait of a person wearing a purple shirt"
+             loading="lazy">
 
         <p>Photo 6</p>
     </div>
 
-    <div class="image-viewer" id="photo-7-view" popover role="dialog" aria-label="Photo 7 larger view">
+    <div class="image-viewer"
+         id="photo-7-view"
+         popover
+         role="dialog"
+         aria-label="Photo 7 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-7-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-7-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_7.jpg" alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
-            loading="lazy">
+        <img src="images/photo_7.jpg"
+             alt="People overlooking a beach and waterfront buildings beneath cloudy skies"
+             loading="lazy">
 
         <p>Photo 7</p>
     </div>
 
-    <div class="image-viewer" id="photo-8-view" popover role="dialog" aria-label="Photo 8 larger view">
+    <div class="image-viewer"
+         id="photo-8-view"
+         popover
+         role="dialog"
+         aria-label="Photo 8 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-8-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-8-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_8.jpg" alt="Studio portrait of a person holding a daisy near their mouth" loading="lazy">
+        <img src="images/photo_8.jpg"
+             alt="Studio portrait of a person holding a daisy near their mouth"
+             loading="lazy">
 
         <p>Photo 8</p>
     </div>
 
-    <div class="image-viewer" id="photo-9-view" popover role="dialog" aria-label="Photo 9 larger view">
+    <div class="image-viewer"
+         id="photo-9-view"
+         popover
+         role="dialog"
+         aria-label="Photo 9 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-9-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-9-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_9.jpg" alt="Black-and-white portrait of a person adjusting a face mask" loading="lazy">
+        <img src="images/photo_9.jpg"
+             alt="Black-and-white portrait of a person adjusting a face mask"
+             loading="lazy">
 
         <p>Photo 9</p>
     </div>
 
-    <div class="image-viewer" id="photo-10-view" popover role="dialog" aria-label="Photo 10 larger view">
+    <div class="image-viewer"
+         id="photo-10-view"
+         popover
+         role="dialog"
+         aria-label="Photo 10 larger view">
 
-        <button class="viewer-close" type="button" popovertarget="photo-10-view" popovertargetaction="hide"
-            aria-label="Close enlarged image" autofocus>
+        <button class="viewer-close"
+                type="button"
+                popovertarget="photo-10-view"
+                popovertargetaction="hide"
+                aria-label="Close enlarged image"
+                autofocus>
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <img src="images/photo_10.jpeg" alt="Red doorway framed by white flowers and stone walls" loading="lazy">
+        <img src="images/photo_10.jpeg"
+             alt="Red doorway framed by white flowers and stone walls"
+             loading="lazy">
 
         <p>Photo 10</p>
     </div>
