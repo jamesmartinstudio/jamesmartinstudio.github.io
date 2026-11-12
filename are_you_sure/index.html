@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Are You Sure? — James Martin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
+  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
+  <script language="javascript" type="text/javascript" src="are_you_sure.js?v=splash-2"></script>
+  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+
+  <style>
+    body { padding: 0; margin: 0; font-family: Arial, sans-serif; }
+    canvas { display: block; }
+    .splash {
+      position: fixed; inset: 0; z-index: 10; overflow-y: auto;
+      box-sizing: border-box; padding: 36px 24px;
+      background: #EDE9FE; color: #1E1E3C;
+      display: grid; place-items: center;
+    }
+    .splash[hidden] { display: none; }
+    .splash-content { width: 100%; max-width: 560px; }
+    h1 { color: #581C87; font-size: clamp(36px, 7vw, 52px); margin: 0 0 20px; }
+    h2 { font-size: 22px; margin-top: 28px; }
+    p, li { font-size: 18px; line-height: 1.6; }
+    ul { padding-left: 24px; }
+    button {
+      background: #7C3AED; color: white; border: 0; border-radius: 8px;
+      padding: 14px 40px; font: bold 20px Arial, sans-serif; cursor: pointer;
+    }
+    button:hover { background: #581C87; }
+    button:focus-visible { outline: 3px solid #581C87; outline-offset: 4px; }
+    .credit { font-size: 14px; margin-bottom: 0; }
+  </style>
+</head>
+
+<body>
+  <section class="splash" id="splash" aria-labelledby="splash-title">
+    <div class="splash-content">
+      <h1 id="splash-title">Are You Sure?</h1>
+      <p>You're paying $14.99 a month for a streaming service you never use.
+        Signing up took one click. Now you want to cancel, but the website has other plans.</p>
+      <h2>How to play</h2>
+      <ul>
+        <li>Chase the real cancel button and click it.</li>
+        <li>Avoid the bright decoy buttons. Clicking one restarts the level.</li>
+        <li>Get through all five levels and try to beat your best time.</li>
+      </ul>
+      <p>A game about the design tricks that make cancelling harder than it should be.</p>
+      <button type="button" id="play-button">Play</button>
+      <p class="credit">By James Martin</p>
+      <p id="game-status" role="status"></p>
+    </div>
+  </section>
+  <script>
+    document.getElementById('play-button').addEventListener('click', function () {
+      if (typeof startGame !== 'function' || typeof millis !== 'function' || !textColor) {
+        document.getElementById('game-status').textContent = 'The game is still loading. Please try Play again in a moment.';
+        return;
+      }
+      startGame();
+      document.getElementById('splash').hidden = true;
+      const canvas = document.querySelector('canvas');
+      if (canvas) {
+        canvas.setAttribute('tabindex', '0');
+        canvas.setAttribute('aria-label', 'Are You Sure? game');
+        canvas.focus();
+      }
+    });
+  </script>
+</body>
+</html>
